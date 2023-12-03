@@ -1,3 +1,5 @@
+*Note:* the pages linked below are unchanged from [[https://github.com/orgzly/documentation][Orgzly's original documentation]], and may be out of date for Orgzly Revived.
+
 - [[miscellaneous.org][A little bit of Everything]]       :: Content of [[https://www.orgzly.com/docs]]
 - [[searching-proposal.org][Search queries syntax (Proposal)]] :: Full specification to be implemented
 
