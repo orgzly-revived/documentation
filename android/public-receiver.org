@@ -6,26 +6,26 @@
 
 * Types
 ** Arguments (Extras)
-The "arguments" to an action are supplied via the =extras= in the intent.
+The "arguments" to an action are supplied via the ~extras~ in the intent.
 
 | Key                               | Type         | Description                                                                                                            |
 |-----------------------------------+--------------+------------------------------------------------------------------------------------------------------------------------|
-| =BOOK_ID=, =PARENT_BOOK_ID=       | long         | The internal ID of a notebook                                                                                          |
-| =BOOK_NAME=, =PARENT_BOOK_NAME=   | string       | The name of a notebook                                                                                                 |
-| =DIRECTION=                       | string       | The direction in which to move something                                                                               |
-| =NOTE_ID=, =PARENT_NOTE_ID=       | long         | The internal ID of a note                                                                                              |
-| =NOTE_IDS=                        | long array   | A list of internal note IDs                                                                                            |
-| =NOTE_PATH=, =PARENT_NOTE_PATH=   | string       | The path to a note, e.g. "My Book/Parent Note/Target Note"                                                             |
-| =NOTE_PATHS=                      | string array | A list of note paths                                                                                                   |
-| =NOTE_PAYLOAD=                    | string       | The contents of a new/edited note, in stringified JSON format; see the =NotePayload= type                              |
-| =NOTE_QUERY=, =PARENT_NOTE_QUERY= | string       | An Orgzly search query to identify a note; errors if the query yields multiple notes                                   |
-| =PLACEMENT=                       | string       | Where to place a note relative to another; one of ="ABOVE"=, ="UNDER"=, ="UNDER_AS_FIRST=", ="BELOW"=, ="UNSPECIFIED"= |
-| =SAVED_SEARCH_ID=                 | long         | The internal ID of a saved search                                                                                      |
-| =SAVED_SEARCH_NAME=               | string       | The name of a saved search                                                                                             |
-| =SAVED_SEARCH_NEW_NAME=           | string       | The name for a new/edited saved search                                                                                 |
-| =SAVED_SEARCH_NEW_QUERY=          | string       | The search query for a new/edited saved search                                                                         |
-| =QUERY=                           | string       | An Orgzly search query                                                                                                 |
-| =WIDGET_ID=                       | int          | The internal ID of a home screen widget                                                                                |
+| ~BOOK_ID~, ~PARENT_BOOK_ID~       | long         | The internal ID of a notebook                                                                                          |
+| ~BOOK_NAME~, ~PARENT_BOOK_NAME~   | string       | The name of a notebook                                                                                                 |
+| ~DIRECTION~                       | string       | The direction in which to move something                                                                               |
+| ~NOTE_ID~, ~PARENT_NOTE_ID~       | long         | The internal ID of a note                                                                                              |
+| ~NOTE_IDS~                        | long array   | A list of internal note IDs                                                                                            |
+| ~NOTE_PATH~, ~PARENT_NOTE_PATH~   | string       | The path to a note, e.g. "My Book/Parent Note/Target Note"                                                             |
+| ~NOTE_PATHS~                      | string array | A list of note paths                                                                                                   |
+| ~NOTE_PAYLOAD~                    | string       | The contents of a new/edited note, in stringified JSON format; see the ~NotePayload~ type                              |
+| ~NOTE_QUERY~, ~PARENT_NOTE_QUERY~ | string       | An Orgzly search query to identify a note; errors if the query yields multiple notes                                   |
+| ~PLACEMENT~                       | string       | Where to place a note relative to another; one of ~​"ABOVE"​~, ~​"UNDER"​~, ~​"UNDER_AS_FIRST"​~, ~​"BELOW"​~, ~​"UNSPECIFIED"​~ |
+| ~SAVED_SEARCH_ID~                 | long         | The internal ID of a saved search                                                                                      |
+| ~SAVED_SEARCH_NAME~               | string       | The name of a saved search                                                                                             |
+| ~SAVED_SEARCH_NEW_NAME~           | string       | The name for a new/edited saved search                                                                                 |
+| ~SAVED_SEARCH_NEW_QUERY~          | string       | The search query for a new/edited saved search                                                                         |
+| ~QUERY~                           | string       | An Orgzly search query                                                                                                 |
+| ~WIDGET_ID~                       | int          | The internal ID of a home screen widget                                                                                |
 
 ** JSON types
 These are given in the style of TypeScript types.
@@ -59,7 +59,7 @@ type Note = {
 
 *** Note payload
 #+BEGIN_SRC typescript
-type NotePayload= {
+type NotePayload = {
   NOTE_PAYLOAD: {
     title: string,  // Note title
     content?: string,  // Note content
@@ -106,17 +106,19 @@ type Timestamp = {
 #+END_SRC
 
 * Actions
-** =ADD_NOTE=
+In practice, all actions should be prefixed with ~\"com.orgzly.android.\"~ , e.g. ~\"com.orgzly.android.ADD_NOTE\"~
+
+** ~ADD_NOTE~
 Adds a new note.
 
 *Arguments:*
 - One of:
-  - =PARENT_BOOK_ID=
-  - =PARENT_BOOK_NAME=
-  - =PARENT_NOTE_ID= and =PLACEMENT=
-  - =PARENT_NOTE_PATH= and =PLACEMENT=
-  - =PARENT_NOTE_QUERY= and =PLACEMENT=
-- =NOTE_PAYLOAD=
+  - ~PARENT_BOOK_ID~
+  - ~PARENT_BOOK_NAME~
+  - ~PARENT_NOTE_ID~ and ~PLACEMENT~
+  - ~PARENT_NOTE_PATH~ and ~PLACEMENT~
+  - ~PARENT_NOTE_QUERY~ and ~PLACEMENT~
+- ~NOTE_PAYLOAD~
 
 *Returns:*
 The internal ID of the newly-created note.
@@ -124,12 +126,12 @@ The internal ID of the newly-created note.
 type AddNoteResponse = Response<number>
 #+END_SRC
 
-** =ADD_SAVED_SEARCH=
+** ~ADD_SAVED_SEARCH~
 Adds a new saved search.
 
 *Arguments:*
-- =SAVED_SEARCH_NEW_NAME=
-- =SAVED_SEARCH_NEW_QUERY=
+- ~SAVED_SEARCH_NEW_NAME~
+- ~SAVED_SEARCH_NEW_QUERY~
 
 *Returns:*
 The internal ID of the newly-created saved search.
@@ -137,15 +139,15 @@ The internal ID of the newly-created saved search.
 type AddSavedSearchResponse = Response<number>
 #+END_SRC
 
-** =DELETE_NOTE= / =DELETE_NOTES=
+** ~DELETE_NOTE~ / ~DELETE_NOTES~
 Deletes one or more notes.
 
 *Arguments:*
 - One of:
-  - =NOTE_ID=
-  - =NOTE_IDS=
-  - =NOTE_PATH=
-  - =NOTE_PATHS=
+  - ~NOTE_ID~
+  - ~NOTE_IDS~
+  - ~NOTE_PATH~
+  - ~NOTE_PATHS~
 
 *Returns:*
 Nothing.
@@ -153,13 +155,13 @@ Nothing.
 type DeleteNoteResponse = Response<null>
 #+END_SRC
 
-** =DELETE_SAVED_SEARCH=
+** ~DELETE_SAVED_SEARCH~
 Deletes a saved search.
 
 *Arguments:*
 - One of:
-  - =SAVED_SEARCH_ID=
-  - =SAVED_SEARCH_NAME=
+  - ~SAVED_SEARCH_ID~
+  - ~SAVED_SEARCH_NAME~
 
 *Returns:*
 Nothing.
@@ -167,15 +169,15 @@ Nothing.
 type DeleteSavedSearchResponse = Response<null>
 #+END_SRC
 
-** =EDIT_NOTE=
+** ~EDIT_NOTE~
 Edits a note.
 
 *Arguments:*
 - One of:
-  - =NOTE_ID=
-  - =NOTE_PATH=
-  - =NOTE_QUERY=
-- =NOTE_PAYLOAD=
+  - ~NOTE_ID~
+  - ~NOTE_PATH~
+  - ~NOTE_QUERY~
+- ~NOTE_PAYLOAD~
 
 *Returns:*
 Nothing.
@@ -183,15 +185,15 @@ Nothing.
 type EditNoteResponse = Response<null>
 #+END_SRC
 
-** =EDIT_SAVED_SEARCH=
+** ~EDIT_SAVED_SEARCH~
 Edits a saved search.
 
 *Arguments:*
 - One of:
-  - =SAVED_SEARCH_ID=
-  - =SAVED_SEARCH_NAME=
-- =SAVED_SEARCH_NEW_NAME=; optional - left unchanged if absent
-- =SAVED_SEARCH_NEW_QUERY=; optional - left unchanged if absent
+  - ~SAVED_SEARCH_ID~
+  - ~SAVED_SEARCH_NAME~
+- ~SAVED_SEARCH_NEW_NAME~; optional - left unchanged if absent
+- ~SAVED_SEARCH_NEW_QUERY~; optional - left unchanged if absent
 
 *Returns:*
 Nothing.
@@ -199,7 +201,7 @@ Nothing.
 type EditSavedSearchResponse = Response<null>
 #+END_SRC
 
-** =GET_BOOKS=
+** ~GET_BOOKS~
 Retrieves a list of all notebooks.
 
 *Arguments:*
@@ -211,14 +213,14 @@ A list of all notebooks.
 type GetBooksResponse = Response<Book[]>
 #+END_SRC
 
-** =GET_NOTE=
+** ~GET_NOTE~
 Retrieves a note.
 
 *Arguments:*
 - One of:
-  - =NOTE_ID=
-  - =NOTE_PATH=
-  - =NOTE_QUERY=
+  - ~NOTE_ID~
+  - ~NOTE_PATH~
+  - ~NOTE_QUERY~
 
 *Returns:*
 The specified note.
@@ -226,7 +228,7 @@ The specified note.
 type GetNoteResponse = Response<Note>
 #+END_SRC
 
-** =GET_SAVED_SEARCHES=
+** ~GET_SAVED_SEARCHES~
 Retrieves a list of all saved searches.
 
 *Arguments:*
@@ -238,7 +240,7 @@ A list of all saved searches.
 type GetSavedSearchesResponse = Response<SavedSearch[]>
 #+END_SRC
 
-** =GET_WIDETS=
+** ~GET_WIDETS~
 Retrieves a list of all home screen widgets.
 
 *Arguments:*
@@ -250,16 +252,16 @@ A map of internal widget IDs to the saved search they're set to
 type GetWidgetsResponse = Response<Record<int, SavedSearch>>
 #+END_SRC
 
-** =MOVE_NOTE= / =MOVE_NOTES=
+** ~MOVE_NOTE~ / ~MOVE_NOTES~
 Moves one or more notes in the specified direction.
 
 *Arguments:*
 - One of:
-  - =NOTE_ID=
-  - =NOTE_IDS=
-  - =NOTE_PATH=
-  - =NOTE_PATHS=
-- =DIRECTION=; one of ="UP"=, ="DOWN"=, ="LEFT"= or ="RIGHT"=
+  - ~NOTE_ID~
+  - ~NOTE_IDS~
+  - ~NOTE_PATH~
+  - ~NOTE_PATHS~
+- ~DIRECTION~; one of ~\"UP\"~, ~\"DOWN\"~, ~\"LEFT\"~ or ~\"RIGHT\"~
 
 *Returns:*
 Nothing.
@@ -267,14 +269,14 @@ Nothing.
 type MoveNoteResponse = Response<null>
 #+END_SRC
 
-** =MOVE_SAVED_SEARCH=
+** ~MOVE_SAVED_SEARCH~
 Moves a saved search up or down in the list of saved searches.
 
 *Arguments:*
 - One of:
-  - =SAVED_SEARCH_ID=
-  - =SAVED_SEARCH_NAME=
-- =DIRECTION=; either ="UP"= or ="DOWN"=
+  - ~SAVED_SEARCH_ID~
+  - ~SAVED_SEARCH_NAME~
+- ~DIRECTION~; either ~\"UP"~ or ~\"DOWN"~
 
 *Returns:*
 Nothing.
@@ -282,16 +284,16 @@ Nothing.
 type MoveSavedSearchResponse = Response<null>
 #+END_SRC
 
-** =REFILE_NOTE= / =REFILE_NOTES=
+** ~REFILE_NOTE~ / ~REFILE_NOTES~
 Refiles one or more notes to a specified location.
 
 *Arguments:*
 - One of:
-  - =NOTE_ID=
-  - =NOTE_IDS=
-  - =NOTE_PATH=
-  - =NOTE_PATHS=
-- =DIRECTION=; one of ="UP"=, ="DOWN"=, ="LEFT"= or ="RIGHT"=
+  - ~NOTE_ID~
+  - ~NOTE_IDS~
+  - ~NOTE_PATH~
+  - ~NOTE_PATHS~
+- ~DIRECTION~; one of ~\"UP\"~, ~\"DOWN\"~, ~\"LEFT\"~ or ~\"RIGHT\"~
 
 *Returns:*
 Nothing.
@@ -299,11 +301,11 @@ Nothing.
 type RefileNoteResponse = Response<null>
 #+END_SRC
 
-** =SEARCH=
+** ~SEARCH~
 Runs a search query, retrieving the results.
 
 *Arguments:*
-- =QUERY=
+- ~QUERY~
 
 *Returns:*
 A list of notes matching the query.
@@ -311,14 +313,14 @@ A list of notes matching the query.
 type SearchResponse = Response<Note[]>
 #+END_SRC
 
-** =SET_WIDGET=
+** ~SET_WIDGET~
 Sets the saved search displayed by a home screen widget.
 
 *Arguments:*
-- =WIDGET_ID=
+- ~WIDGET_ID~
 - One of:
-  - =SAVED_SEARCH_ID=
-  - =SAVED_SEARCH_NAME=
+  - ~SAVED_SEARCH_ID~
+  - ~SAVED_SEARCH_NAME~
 
 *Returns:*
 Nothing.
