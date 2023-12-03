@@ -1,0 +1,327 @@
+#+TITLE: Public Receiver
+#+AUTHOR: Orgzly Revived
+#+OPTIONS: html-postamble:nil num:nil H:10
+
+/For integration with [[https://tasker.joaoapps.com/][Tasker]], [[https://llamalab.com/automate/][Automate]], etc./
+
+* Types
+** Arguments (Extras)
+The "arguments" to an action are supplied via the =extras= in the intent.
+
+| Key                               | Type         | Description                                                                                                            |
+|-----------------------------------+--------------+------------------------------------------------------------------------------------------------------------------------|
+| =BOOK_ID=, =PARENT_BOOK_ID=       | long         | The internal ID of a notebook                                                                                          |
+| =BOOK_NAME=, =PARENT_BOOK_NAME=   | string       | The name of a notebook                                                                                                 |
+| =DIRECTION=                       | string       | The direction in which to move something                                                                               |
+| =NOTE_ID=, =PARENT_NOTE_ID=       | long         | The internal ID of a note                                                                                              |
+| =NOTE_IDS=                        | long array   | A list of internal note IDs                                                                                            |
+| =NOTE_PATH=, =PARENT_NOTE_PATH=   | string       | The path to a note, e.g. "My Book/Parent Note/Target Note"                                                             |
+| =NOTE_PATHS=                      | string array | A list of note paths                                                                                                   |
+| =NOTE_PAYLOAD=                    | string       | The contents of a new/edited note, in stringified JSON format; see the =NotePayload= type                              |
+| =NOTE_QUERY=, =PARENT_NOTE_QUERY= | string       | An Orgzly search query to identify a note; errors if the query yields multiple notes                                   |
+| =PLACEMENT=                       | string       | Where to place a note relative to another; one of ="ABOVE"=, ="UNDER"=, ="UNDER_AS_FIRST=", ="BELOW"=, ="UNSPECIFIED"= |
+| =SAVED_SEARCH_ID=                 | long         | The internal ID of a saved search                                                                                      |
+| =SAVED_SEARCH_NAME=               | string       | The name of a saved search                                                                                             |
+| =SAVED_SEARCH_NEW_NAME=           | string       | The name for a new/edited saved search                                                                                 |
+| =SAVED_SEARCH_NEW_QUERY=          | string       | The search query for a new/edited saved search                                                                         |
+| =QUERY=                           | string       | An Orgzly search query                                                                                                 |
+| =WIDGET_ID=                       | int          | The internal ID of a home screen widget                                                                                |
+
+** JSON types
+These are given in the style of TypeScript types.
+
+*** Book (Notebook)
+#+BEGIN_SRC ts :exports none :results silent
+type Book = {
+  id: number,  // Notebook ID in Orgzly's internal database
+  title: string,  // Notebook title
+}
+#+END_SRC
+
+*** Note
+#+BEGIN_SRC ts :exports none :results silent
+type Note = {
+  id: number,  // Note ID in Orgzly's internal database
+  title: string,  // Note title
+  content: string | null,  // Note content
+  tags: string[],  // Own tags - inherited tags are not included
+  inheritedTags: string[],  // Tags inherited from parent notes
+  bookName: string,  // The containing notebook's name
+  scheduled: Timestamp | null,  // Scheduled timestamp
+  deadline: Timestamp | null,  // Deadline timestamp
+  closed: Timestamp | null,  // Closed timestamp
+  priority: string | null,  // Priority string, e.g. "A", "B", "C"
+  state: string | null,  // To-do state, e.g. "TODO", "DONE"
+  createdAt: number | null,  // UNIX timestamp of the note's creation
+  properties: Record<string, string>,  // Map of the note's PROPERTIES
+}
+#+END_SRC
+
+*** Note payload
+#+BEGIN_SRC ts :exports none :results silent
+type NotePayload= {
+  NOTE_PAYLOAD: {
+    title: string,  // Note title
+    content?: string,  // Note content
+    state?: string,  // To-do state e.g. "TODO", "DONE"
+    priority?: string,  // Priority string e.g. "A", "B", "C"
+    scheduled?: string,  // Scheduled timestamp (in Org format)
+    deadline?: string,  // Deadline timestamp (in Org format)
+    closed?: string,  // Closed timestamp (in Org format)
+    tags?: string,  // A space-separated list of tags
+    properties?: Record<string, string>,  // A map of properties
+  }
+}
+#+END_SRC
+
+*** Response
+#+BEGIN_SRC ts :exports none :results silent
+type Response<Data> = {
+  success: true,  // Success case
+  result: Data | null,  // Response data; see response types for specific actions
+} | {
+  success: false,  // Failure case
+  result: string,  // An error message
+}
+#+END_SRC
+
+*** Saved search
+#+BEGIN_SRC ts :exports none :results silent
+type SavedSearch = {
+  id: number,  // Saved search ID in Orgzly's internal database
+  name: string,  // Saved search name
+  position: number,  // Position in the list of saved searches
+  query: string,  // The search's query
+}
+#+END_SRC
+
+*** Timestamp
+#+BEGIN_SRC ts :exports none :results silent
+type Timestamp = {
+  rangeString: string,  // Full timestamp string
+  timeTimestamp: number,  // UNIX timestamp of the start of the time range
+  timeString: string | null,  // String of the stamp's start time
+  timeEndString: string | null, // String of the stamp's end time
+}
+#+END_SRC
+
+* Actions
+** =ADD_NOTE=
+Adds a new note.
+
+*Arguments:*
+- One of:
+  - =PARENT_BOOK_ID=
+  - =PARENT_BOOK_NAME=
+  - =PARENT_NOTE_ID= and =PLACEMENT=
+  - =PARENT_NOTE_PATH= and =PLACEMENT=
+  - =PARENT_NOTE_QUERY= and =PLACEMENT=
+- =NOTE_PAYLOAD=
+
+*Returns:*
+The internal ID of the newly-created note.
+#+BEGIN_SRC ts :exports none :results silent
+type AddNoteResponse = Response<number>
+#+END_SRC
+
+** =ADD_SAVED_SEARCH=
+Adds a new saved search.
+
+*Arguments:*
+- =SAVED_SEARCH_NEW_NAME=
+- =SAVED_SEARCH_NEW_QUERY=
+
+*Returns:*
+The internal ID of the newly-created saved search.
+#+BEGIN_SRC ts :exports none :results silent
+type AddSavedSearchResponse = Response<number>
+#+END_SRC
+
+** =DELETE_NOTE= / =DELETE_NOTES=
+Deletes one or more notes.
+
+*Arguments:*
+- One of:
+  - =NOTE_ID=
+  - =NOTE_IDS=
+  - =NOTE_PATH=
+  - =NOTE_PATHS=
+
+*Returns:*
+Nothing.
+#+BEGIN_SRC ts :exports none :results silent
+type DeleteNoteResponse = Response<null>
+#+END_SRC
+
+** =DELETE_SAVED_SEARCH=
+Deletes a saved search.
+
+*Arguments:*
+- One of:
+  - =SAVED_SEARCH_ID=
+  - =SAVED_SEARCH_NAME=
+
+*Returns:*
+Nothing.
+#+BEGIN_SRC ts :exports none :results silent
+type DeleteSavedSearchResponse = Response<null>
+#+END_SRC
+
+** =EDIT_NOTE=
+Edits a note.
+
+*Arguments:*
+- One of:
+  - =NOTE_ID=
+  - =NOTE_PATH=
+  - =NOTE_QUERY=
+- =NOTE_PAYLOAD=
+
+*Returns:*
+Nothing.
+#+BEGIN_SRC ts :exports none :results silent
+type EditNoteResponse = Response<null>
+#+END_SRC
+
+** =EDIT_SAVED_SEARCH=
+Edits a saved search.
+
+*Arguments:*
+- One of:
+  - =SAVED_SEARCH_ID=
+  - =SAVED_SEARCH_NAME=
+- =SAVED_SEARCH_NEW_NAME=; optional - left unchanged if absent
+- =SAVED_SEARCH_NEW_QUERY=; optional - left unchanged if absent
+
+*Returns:*
+Nothing.
+#+BEGIN_SRC ts :exports none :results silent
+type EditSavedSearchResponse = Response<null>
+#+END_SRC
+
+** =GET_BOOKS=
+Retrieves a list of all notebooks.
+
+*Arguments:*
+None.
+
+*Returns:*
+A list of all notebooks.
+#+BEGIN_SRC ts :exports none :results silent
+type GetBooksResponse = Response<Book[]>
+#+END_SRC
+
+** =GET_NOTE=
+Retrieves a note.
+
+*Arguments:*
+- One of:
+  - =NOTE_ID=
+  - =NOTE_PATH=
+  - =NOTE_QUERY=
+
+*Returns:*
+The specified note.
+#+BEGIN_SRC ts :exports none :results silent
+type GetNoteResponse = Response<Note>
+#+END_SRC
+
+** =GET_SAVED_SEARCHES=
+Retrieves a list of all saved searches.
+
+*Arguments:*
+None.
+
+*Returns:*
+A list of all saved searches.
+#+BEGIN_SRC ts :exports none :results silent
+type GetSavedSearchesResponse = Response<SavedSearch[]>
+#+END_SRC
+
+** =GET_WIDETS=
+Retrieves a list of all home screen widgets.
+
+*Arguments:*
+None.
+
+*Returns:*
+A map of internal widget IDs to the saved search they're set to
+#+BEGIN_SRC ts :exports none :results silent
+type GetWidgetsResponse = Response<Record<int, SavedSearch>>
+#+END_SRC
+
+** =MOVE_NOTE= / =MOVE_NOTES=
+Moves one or more notes in the specified direction.
+
+*Arguments:*
+- One of:
+  - =NOTE_ID=
+  - =NOTE_IDS=
+  - =NOTE_PATH=
+  - =NOTE_PATHS=
+- =DIRECTION=; one of ="UP"=, ="DOWN"=, ="LEFT"= or ="RIGHT"=
+
+*Returns:*
+Nothing.
+#+BEGIN_SRC ts :exports none :results silent
+type MoveNoteResponse = Response<null>
+#+END_SRC
+
+** =MOVE_SAVED_SEARCH=
+Moves a saved search up or down in the list of saved searches.
+
+*Arguments:*
+- One of:
+  - =SAVED_SEARCH_ID=
+  - =SAVED_SEARCH_NAME=
+- =DIRECTION=; either ="UP"= or ="DOWN"=
+
+*Returns:*
+Nothing.
+#+BEGIN_SRC ts :exports none :results silent
+type MoveSavedSearchResponse = Response<null>
+#+END_SRC
+
+** =REFILE_NOTE= / =REFILE_NOTES=
+Refiles one or more notes to a specified location.
+
+*Arguments:*
+- One of:
+  - =NOTE_ID=
+  - =NOTE_IDS=
+  - =NOTE_PATH=
+  - =NOTE_PATHS=
+- =DIRECTION=; one of ="UP"=, ="DOWN"=, ="LEFT"= or ="RIGHT"=
+
+*Returns:*
+Nothing.
+#+BEGIN_SRC ts :exports none :results silent
+type RefileNoteResponse = Response<null>
+#+END_SRC
+
+** =SEARCH=
+Runs a search query, retrieving the results.
+
+*Arguments:*
+- =QUERY=
+
+*Returns:*
+A list of notes matching the query.
+#+BEGIN_SRC ts :exports none :results silent
+type SearchResponse = Response<Note[]>
+#+END_SRC
+
+** =SET_WIDGET=
+Sets the saved search displayed by a home screen widget.
+
+*Arguments:*
+- =WIDGET_ID=
+- One of:
+  - =SAVED_SEARCH_ID=
+  - =SAVED_SEARCH_NAME=
+
+*Returns:*
+Nothing.
+#+BEGIN_SRC ts :exports none :results silent
+type SetWidgetResponse = Response<null>
+#+END_SRC
