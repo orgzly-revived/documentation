@@ -4,6 +4,27 @@
 
 /For integration with [[https://tasker.joaoapps.com/][Tasker]], [[https://llamalab.com/automate/][Automate]], etc./
 
+* Table of Contents
+- [[#types][Types]]
+  - [[#arguments-extras][Arguments (Extras)]]
+  - [[#json-types][JSON types]]
+- [[#actions][Actions]]
+  - [[#add_note][ ~ADD_NOTE~ ]]
+  - [[#add_saved_search][ ~ADD_SAVED_SEARCH~ ]]
+  - [[#delete_note--delete_notes][ ~DELETE_NOTE~ / ~DELETE_NOTES~ ]]
+  - [[#delete_saved_search][ ~DELETE_SAVED_SEARCH~ ]]
+  - [[#edit_note][ ~EDIT_NOTE~ ]]
+  - [[#edit_saved_search][ ~EDIT_SAVED_SEARCH~ ]]
+  - [[#get_books][ ~GET_BOOKS~ ]]
+  - [[#get_note][ ~GET_NOTE~ ]]
+  - [[#get_saved_searches][ ~GET_SAVED_SEARCHES~ ]]
+  - [[#get_widets][ ~GET_WIDETS~ ]]
+  - [[#move_note--move_notes][ ~MOVE_NOTE~ / ~MOVE_NOTES~ ]]
+  - [[#move_saved_search][ ~MOVE_SAVED_SEARCH~ ]]
+  - [[#refile_note--refile_notes][ ~REFILE_NOTE~ / ~REFILE_NOTES~ ]]
+  - [[#search][ ~SEARCH~ ]]
+  - [[#set_widget][ ~SET_WIDGET~ ]]
+
 * Types
 ** Arguments (Extras)
 The "arguments" to an action are supplied via the ~extras~ in the intent.
