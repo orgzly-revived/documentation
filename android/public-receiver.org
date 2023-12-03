@@ -18,7 +18,7 @@
   - [[#get_books][ ~GET_BOOKS~ ]]
   - [[#get_note][ ~GET_NOTE~ ]]
   - [[#get_saved_searches][ ~GET_SAVED_SEARCHES~ ]]
-  - [[#get_widets][ ~GET_WIDETS~ ]]
+  - [[#get_widgets][ ~GET_WIDGETS~ ]]
   - [[#move_note--move_notes][ ~MOVE_NOTE~ / ~MOVE_NOTES~ ]]
   - [[#move_saved_search][ ~MOVE_SAVED_SEARCH~ ]]
   - [[#refile_note--refile_notes][ ~REFILE_NOTE~ / ~REFILE_NOTES~ ]]
@@ -127,7 +127,7 @@ type Timestamp = {
 #+END_SRC
 
 * Actions
-In practice, all actions should be prefixed with ~\"com.orgzly.android.\"~ , e.g. ~\"com.orgzly.android.ADD_NOTE\"~
+In practice, all actions should be prefixed with ~​"com.orgzly.android."​~ , e.g. ~​"com.orgzly.android.ADD_NOTE"​~
 
 ** ~ADD_NOTE~
 Adds a new note.
@@ -261,7 +261,7 @@ A list of all saved searches.
 type GetSavedSearchesResponse = Response<SavedSearch[]>
 #+END_SRC
 
-** ~GET_WIDETS~
+** ~GET_WIDGETS~
 Retrieves a list of all home screen widgets.
 
 *Arguments:*
@@ -282,7 +282,7 @@ Moves one or more notes in the specified direction.
   - ~NOTE_IDS~
   - ~NOTE_PATH~
   - ~NOTE_PATHS~
-- ~DIRECTION~; one of ~\"UP\"~, ~\"DOWN\"~, ~\"LEFT\"~ or ~\"RIGHT\"~
+- ~DIRECTION~; one of ~​"UP"​~, ~​"DOWN"​~, ~​"LEFT"​~ or ~​"RIGHT"​~
 
 *Returns:*
 Nothing.
@@ -297,7 +297,7 @@ Moves a saved search up or down in the list of saved searches.
 - One of:
   - ~SAVED_SEARCH_ID~
   - ~SAVED_SEARCH_NAME~
-- ~DIRECTION~; either ~\"UP"~ or ~\"DOWN"~
+- ~DIRECTION~; either ~​"UP"​~ or ~​"DOWN"​~
 
 *Returns:*
 Nothing.
@@ -314,7 +314,12 @@ Refiles one or more notes to a specified location.
   - ~NOTE_IDS~
   - ~NOTE_PATH~
   - ~NOTE_PATHS~
-- ~DIRECTION~; one of ~\"UP\"~, ~\"DOWN\"~, ~\"LEFT\"~ or ~\"RIGHT\"~
+- One of:
+  - ~PARENT_BOOK_ID~
+  - ~PARENT_BOOK_NAME~
+  - ~PARENT_NOTE_ID~ and ~PLACEMENT~
+  - ~PARENT_NOTE_PATH~ and ~PLACEMENT~
+  - ~PARENT_NOTE_QUERY~ and ~PLACEMENT~
 
 *Returns:*
 Nothing.
