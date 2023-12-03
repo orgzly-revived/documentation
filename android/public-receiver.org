@@ -31,7 +31,7 @@ The "arguments" to an action are supplied via the =extras= in the intent.
 These are given in the style of TypeScript types.
 
 *** Book (Notebook)
-#+BEGIN_SRC ts :exports none :results silent
+#+BEGIN_SRC typescript
 type Book = {
   id: number,  // Notebook ID in Orgzly's internal database
   title: string,  // Notebook title
@@ -39,7 +39,7 @@ type Book = {
 #+END_SRC
 
 *** Note
-#+BEGIN_SRC ts :exports none :results silent
+#+BEGIN_SRC typescript
 type Note = {
   id: number,  // Note ID in Orgzly's internal database
   title: string,  // Note title
@@ -58,7 +58,7 @@ type Note = {
 #+END_SRC
 
 *** Note payload
-#+BEGIN_SRC ts :exports none :results silent
+#+BEGIN_SRC typescript
 type NotePayload= {
   NOTE_PAYLOAD: {
     title: string,  // Note title
@@ -75,7 +75,7 @@ type NotePayload= {
 #+END_SRC
 
 *** Response
-#+BEGIN_SRC ts :exports none :results silent
+#+BEGIN_SRC typescript
 type Response<Data> = {
   success: true,  // Success case
   result: Data | null,  // Response data; see response types for specific actions
@@ -86,7 +86,7 @@ type Response<Data> = {
 #+END_SRC
 
 *** Saved search
-#+BEGIN_SRC ts :exports none :results silent
+#+BEGIN_SRC typescript
 type SavedSearch = {
   id: number,  // Saved search ID in Orgzly's internal database
   name: string,  // Saved search name
@@ -96,7 +96,7 @@ type SavedSearch = {
 #+END_SRC
 
 *** Timestamp
-#+BEGIN_SRC ts :exports none :results silent
+#+BEGIN_SRC typescript
 type Timestamp = {
   rangeString: string,  // Full timestamp string
   timeTimestamp: number,  // UNIX timestamp of the start of the time range
@@ -120,7 +120,7 @@ Adds a new note.
 
 *Returns:*
 The internal ID of the newly-created note.
-#+BEGIN_SRC ts :exports none :results silent
+#+BEGIN_SRC typescript
 type AddNoteResponse = Response<number>
 #+END_SRC
 
@@ -133,7 +133,7 @@ Adds a new saved search.
 
 *Returns:*
 The internal ID of the newly-created saved search.
-#+BEGIN_SRC ts :exports none :results silent
+#+BEGIN_SRC typescript
 type AddSavedSearchResponse = Response<number>
 #+END_SRC
 
@@ -149,7 +149,7 @@ Deletes one or more notes.
 
 *Returns:*
 Nothing.
-#+BEGIN_SRC ts :exports none :results silent
+#+BEGIN_SRC typescript
 type DeleteNoteResponse = Response<null>
 #+END_SRC
 
@@ -163,7 +163,7 @@ Deletes a saved search.
 
 *Returns:*
 Nothing.
-#+BEGIN_SRC ts :exports none :results silent
+#+BEGIN_SRC typescript
 type DeleteSavedSearchResponse = Response<null>
 #+END_SRC
 
@@ -179,7 +179,7 @@ Edits a note.
 
 *Returns:*
 Nothing.
-#+BEGIN_SRC ts :exports none :results silent
+#+BEGIN_SRC typescript
 type EditNoteResponse = Response<null>
 #+END_SRC
 
@@ -195,7 +195,7 @@ Edits a saved search.
 
 *Returns:*
 Nothing.
-#+BEGIN_SRC ts :exports none :results silent
+#+BEGIN_SRC typescript
 type EditSavedSearchResponse = Response<null>
 #+END_SRC
 
@@ -207,7 +207,7 @@ None.
 
 *Returns:*
 A list of all notebooks.
-#+BEGIN_SRC ts :exports none :results silent
+#+BEGIN_SRC typescript
 type GetBooksResponse = Response<Book[]>
 #+END_SRC
 
@@ -222,7 +222,7 @@ Retrieves a note.
 
 *Returns:*
 The specified note.
-#+BEGIN_SRC ts :exports none :results silent
+#+BEGIN_SRC typescript
 type GetNoteResponse = Response<Note>
 #+END_SRC
 
@@ -234,7 +234,7 @@ None.
 
 *Returns:*
 A list of all saved searches.
-#+BEGIN_SRC ts :exports none :results silent
+#+BEGIN_SRC typescript
 type GetSavedSearchesResponse = Response<SavedSearch[]>
 #+END_SRC
 
@@ -246,7 +246,7 @@ None.
 
 *Returns:*
 A map of internal widget IDs to the saved search they're set to
-#+BEGIN_SRC ts :exports none :results silent
+#+BEGIN_SRC typescript
 type GetWidgetsResponse = Response<Record<int, SavedSearch>>
 #+END_SRC
 
@@ -263,7 +263,7 @@ Moves one or more notes in the specified direction.
 
 *Returns:*
 Nothing.
-#+BEGIN_SRC ts :exports none :results silent
+#+BEGIN_SRC typescript
 type MoveNoteResponse = Response<null>
 #+END_SRC
 
@@ -278,7 +278,7 @@ Moves a saved search up or down in the list of saved searches.
 
 *Returns:*
 Nothing.
-#+BEGIN_SRC ts :exports none :results silent
+#+BEGIN_SRC typescript
 type MoveSavedSearchResponse = Response<null>
 #+END_SRC
 
@@ -295,7 +295,7 @@ Refiles one or more notes to a specified location.
 
 *Returns:*
 Nothing.
-#+BEGIN_SRC ts :exports none :results silent
+#+BEGIN_SRC typescript
 type RefileNoteResponse = Response<null>
 #+END_SRC
 
@@ -307,7 +307,7 @@ Runs a search query, retrieving the results.
 
 *Returns:*
 A list of notes matching the query.
-#+BEGIN_SRC ts :exports none :results silent
+#+BEGIN_SRC typescript
 type SearchResponse = Response<Note[]>
 #+END_SRC
 
@@ -322,6 +322,6 @@ Sets the saved search displayed by a home screen widget.
 
 *Returns:*
 Nothing.
-#+BEGIN_SRC ts :exports none :results silent
+#+BEGIN_SRC typescript
 type SetWidgetResponse = Response<null>
 #+END_SRC
