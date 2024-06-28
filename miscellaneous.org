@@ -1,5 +1,5 @@
 #+TITLE: A bit of Everything
-#+AUTHOR: Orgzly
+#+AUTHOR: Orgzly Revived
 #+OPTIONS: html-postamble:nil num:nil H:10
 
 #+BEGIN_SRC elisp :exports none :results silent
@@ -15,18 +15,14 @@
 :CUSTOM_ID: synchronization
 :END:
 
-You can store your notebooks on Dropbox or sync them with a directory
-on your device.
+You can sync your notebooks with a directory on your device, or
+with a few different repository types: Dropbox, WebDAV, and Git.
 
 Notebooks are written as plain text files in [[https://orgmode.org][Org mode]] file format.
 
 Synchronization is currently manual -- you have to initiate it
 yourself by clicking the ~Sync~ button. Button is located in the
 navigation drawer.
-
-Note that Orgzly doesn't yet detect deletion of remote notebooks. If
-you delete a notebook in the repository it will be restored after sync
-(unless you deleted it in the app as well).
 
 ** Repository Types
 :PROPERTIES:
@@ -507,15 +503,15 @@ Orgzly is free.
 :CUSTOM_ID: source-code
 :END:
 
-Yes, source code is available on [[https://github.com/orgzly/orgzly-android][GitHub]].
+Yes, the source code is available on [[https://github.com/orgzly-revived/orgzly-android-revived][GitHub]].
 
 ** I don't use Google Play, any alternatives?
 :PROPERTIES:
 :CUSTOM_ID: 96f0fcb
 :END:
 
-Orgzly is also available on [[https://f-droid.org/app/com.orgzly][F-Droid]]. Or you can download APK files
-directly from [[https://github.com/orgzly/orgzly-android/releases][GitHub releases]] page.
+Orgzly Revived is also available on [[https://f-droid.org/app/com.orgzlyrevived][F-Droid]]. Or you can download APK files
+directly from the [[https://github.com/orgzly-revived/orgzly-android-revived/releases][GitHub releases]] page.
 
 ** Dropbox sync option is missing
 :PROPERTIES:
@@ -532,24 +528,18 @@ Play's version of the app.
 
 No, only Android version is available at the moment.
 
-After implementing some of the important features which are still
-missing in the current Android version, there is an idea to start
-working on either iOS version or a Web application.
-
 * Privacy Policy
 :PROPERTIES:
 :CUSTOM_ID: privacy
 :END:
 
-See [[https://www.orgzly.com/privacy][Privacy Policy]].
+See [[https://www.orgzlyrevived.com/privacy][Privacy Policy]].
 
 * Contact
 :PROPERTIES:
 :CUSTOM_ID: contact
 :END:
 
-Email us at [[mailto:support@orgzly.com][support@orgzly.com]] and visit [[https://www.orgzly.com][Orgzly.com]].
-
-Follow us on [[https://twitter.com/Orgzly][Twitter]] and [[https://www.facebook.com/Orgzly][Facebook]].
+Email us at [[mailto:support@orgzlyrevived.com][support@orgzlyrevived.com]] and visit [[https://www.orgzlyrevived.com][Orgzlyrevived.com]].
 
 Help us localize Orgzly by joining our [[https://crowdin.com/project/orgzly][Crowdin project]].
