@@ -496,7 +496,7 @@ notebook that contains it.
 :CUSTOM_ID: cost
 :END:
 
-Orgzly is free.
+Orgzly Revived is free.
 
 ** Is the source code available?
 :PROPERTIES:
