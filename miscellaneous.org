@@ -221,6 +221,18 @@ difference would be considered a serious bug.
 
 If any of this is not working for you, please [[Contact][contact]] us.
 
+** Ignoring files in a repository
+
+For users who have a large number of .org files in their repository, and only want Orgzly to load some of them, a =.orgzlyignore= file can be added to the repository on a remote device. The file uses the same syntax as Git's =.gitignore= file, which lets you exclude or include files based on glob patterns. See the [[https://git-scm.com/docs/gitignore#_pattern_format][Git documentation]] for details on the syntax. If the repository contains a =.orgzlyignore= file, it will be consulted in the following situations:
+
+1. When looking through the repository for .org files to load.
+2. When renaming notebooks.
+3. When linking a notebook to a repository (to ensure that the resulting file name does not match an ignore rule).
+
+Please note that the =.orgzlyignore= file is not consulted each time a notebook is saved to a repository, for performance reasons.
+
+If the ignore rules are updated such that an existing Orgzly notebook suddenly matches an ignore rule, upon the next sync occasion, Orgzly will react as if the file has been deleted from the repository. This means that the notebook's repository link is removed, and a warning message is shown, but the notebook is *not* deleted from Orgzly. However, you will not be able to link the notebook to the same repository, unless you rename it to something which does not match an ignore rule. (It would also be possible to link the notebook to a different repository, with different or no ignore rules.)
+
 * Links
 :PROPERTIES:
 :CUSTOM_ID: links
