@@ -1,8 +1,8 @@
 - [[android/public-receiver.org][Public receiver]] :: For integration with Tasker, Automate, etc.
 
-*Note:* the pages linked below are unchanged from [[https://github.com/orgzly/documentation][Orgzly's original documentation]], and may be out of date for Orgzly Revived.
+*Note:* Some of the the pages linked below are unchanged from [[https://github.com/orgzly/documentation][Orgzly's original documentation]], and may be out of date for Orgzly Revived.
 
-- [[miscellaneous.org][A little bit of Everything]]       :: Content of [[https://www.orgzly.com/docs]]
+- [[miscellaneous.org][A little bit of Everything]]       :: Content of [[https://www.orgzlyrevived.com/docs]]
 - [[searching-proposal.org][Search queries syntax (Proposal)]] :: Full specification to be implemented
 
 * Android App
