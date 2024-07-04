@@ -1,5 +1,5 @@
 #+TITLE: Changelog
-#+AUTHOR: Orgzly
+#+AUTHOR: Orgzly Revived
 #+OPTIONS: html-postamble:nil num:nil html-style:nil tags:nil H:1 toc:nil
 #+TODO: FEAT(f) IMPR(i) FIX(b) | DONE(d)
 
@@ -10,6 +10,220 @@
       (unless (org-entry-get (point) "CUSTOM_ID")
         (org-set-property "CUSTOM_ID" (format "%07x" (random #x10000000))))))
 #+END_SRC
+
+* v1.8.24
+:PROPERTIES:
+:CUSTOM_ID: v1.8.23
+:END:
+
+** IMPR Better handling of remotely deleted files
+:PROPERTIES:
+:CUSTOM_ID: 9526830
+:END:
+** IMPR Better handling of the notifications permission
+:PROPERTIES:
+:CUSTOM_ID: 8a1fbb9
+:END:
+
+* v1.8.23
+:PROPERTIES:
+:CUSTOM_ID: v1.8.23
+:END:
+
+** FIX Fix crash when scheduling reminders
+:PROPERTIES:
+:CUSTOM_ID: 3b10251
+:END:
+** FIX Git: Fix broken .orgzlyignore rule check
+:PROPERTIES:
+:CUSTOM_ID: 826c4f4
+:END:
+
+* v1.8.21
+:PROPERTIES:
+:CUSTOM_ID: v1.8.21
+:END:
+
+** FIX Fix F-droid build not being reproducible
+:PROPERTIES:
+:CUSTOM_ID: f7f14f8
+:END:
+
+* v1.8.20
+:PROPERTIES:
+:CUSTOM_ID: v1.8.20
+:END:
+
+** FIX Fix broken Dropbox account linking
+:PROPERTIES:
+:CUSTOM_ID: 8bce0de
+:END:
+
+* v1.8.19
+:PROPERTIES:
+:CUSTOM_ID: v1.8.19
+:END:
+
+** IMPR Git: Check .orgzlyignore when writing files
+:PROPERTIES:
+:CUSTOM_ID: 5ec245b
+:END:
+
+* v1.8.18
+:PROPERTIES:
+:CUSTOM_ID: v1.8.18
+:END:
+
+** IMPR Git: Support syncing to an empty repository
+:PROPERTIES:
+:CUSTOM_ID: 24b5aef
+:END:
+
+* v1.8.17
+:PROPERTIES:
+:CUSTOM_ID: v1.8.17
+:END:
+
+** FIX Various fixes for Git repos
+:PROPERTIES:
+:CUSTOM_ID: d8cc32b
+:END:
+** FIX Fix broken app shortcuts
+:PROPERTIES:
+:CUSTOM_ID: db715d6
+:END:
+
+* v1.8.16
+:PROPERTIES:
+:CUSTOM_ID: v1.8.16
+:END:
+
+** FIX Prevent adding undesired newline between drawers in header
+:PROPERTIES:
+:CUSTOM_ID: 759c784
+:END:
+
+* v1.8.15
+:PROPERTIES:
+:CUSTOM_ID: v1.8.15
+:END:
+
+** IMPR Add a public receiver for Tasker, Automate, etc
+:PROPERTIES:
+:CUSTOM_ID: de5e7c0
+:END:
+** IMPR Log sync events to major events app log
+:PROPERTIES:
+:CUSTOM_ID: 8184f94
+:END:
+** FIX Removed force Light theme for splash screen
+:PROPERTIES:
+:CUSTOM_ID: dce89eb
+:END:
+** IMPR Turkish translation updated
+:PROPERTIES:
+:CUSTOM_ID: 32f5c93
+:END:
+** IMPR Disable Git repos below API 24
+:PROPERTIES:
+:CUSTOM_ID: e2f035f
+:END:
+
+* v1.8.14
+:PROPERTIES:
+:CUSTOM_ID: v1.8.14
+:END:
+
+** FIX Git: Work around bug in the SSH transport library
+:PROPERTIES:
+:CUSTOM_ID: 275c5a0
+:END:
+
+* v1.8.13
+:PROPERTIES:
+:CUSTOM_ID: v1.8.13
+:END:
+
+** FEAT Git: Show current branch in notebook sync status
+:PROPERTIES:
+:CUSTOM_ID: e3548f0
+:END:
+** FIX Eliminate jitter in widget agenda
+:PROPERTIES:
+:CUSTOM_ID: eb75507
+:END:
+** FIX Bug fixes around SSH key generation and Git cloning
+:PROPERTIES:
+:CUSTOM_ID: 70828b6
+:END:
+** FIX Fix broken notification settings
+:PROPERTIES:
+:CUSTOM_ID: ca37e51
+:END:
+** IMPR Log more about Git-related errors
+:PROPERTIES:
+:CUSTOM_ID: 594446f
+:END:
+
+* v1.8.12
+:PROPERTIES:
+:CUSTOM_ID: v1.8.12
+:END:
+
+** FEAT Add preference to hide empty days in agenda
+:PROPERTIES:
+:CUSTOM_ID: bf1cec9
+:END:
+** FEAT Show ranged timestamps in agenda queries
+:PROPERTIES:
+:CUSTOM_ID: a35b283
+:END:
+** FEAT Add menu option to sort lines in a note
+:PROPERTIES:
+:CUSTOM_ID: be4c1c3
+:END:
+** FEAT Add preference to trigger auto-sync upon app suspend
+:PROPERTIES:
+:CUSTOM_ID: 1584fd0
+:END:
+** IMPR Add tooltips for popup buttons
+:PROPERTIES:
+:CUSTOM_ID: 7c43372
+:END:
+
+* v1.8.11
+:PROPERTIES:
+:CUSTOM_ID: v1.8.11
+:END:
+
+** FEAT Add sync button to widget
+:PROPERTIES:
+:CUSTOM_ID: 6c601a4
+:END:
+** FEAT Add clocking/time capture feature
+:PROPERTIES:
+:CUSTOM_ID: e344ece
+:END:
+** FEAT Add support for opening org-protocol://org-id-goto links
+:PROPERTIES:
+:CUSTOM_ID: 2bbffaf
+:END:
+** FEAT Make popup buttons configurable
+:PROPERTIES:
+:CUSTOM_ID: 2719200
+:END:
+** FEAT Generate SSH key for Git syncing on the device
+:PROPERTIES:
+:CUSTOM_ID: 5de2465
+:END:
+** IMPR Various Git-related improvements (feature still in beta)
+:PROPERTIES:
+:CUSTOM_ID: e983e95
+:END:
+** IMPR Add monochrome icon definition
+:PROPERTIES:
+:CUSTOM_ID: 975165e
+:END:
 
 * v1.8.10
 :PROPERTIES:
