@@ -13,7 +13,7 @@
 
 * v1.8.24
 :PROPERTIES:
-:CUSTOM_ID: v1.8.23
+:CUSTOM_ID: v1.8.24
 :END:
 
 ** IMPR Better handling of remotely deleted files
@@ -37,6 +37,32 @@
 ** FIX Git: Fix broken .orgzlyignore rule check
 :PROPERTIES:
 :CUSTOM_ID: 826c4f4
+:END:
+
+* v1.8.22
+:PROPERTIES:
+:CUSTOM_ID: v1.8.22
+:END:
+
+** IMPR Target Android 13
+:PROPERTIES:
+:CUSTOM_ID: fb17386
+:END:
+** IMPR Enable sync failure notifications by default
+:PROPERTIES:
+:CUSTOM_ID: 005c537
+:END:
+** IMPR Prompt user to grant permission for alarms, notifications
+:PROPERTIES:
+:CUSTOM_ID: 0d1e8af
+:END:
+** IMPR Temporarily disable Git repos in Play Store build
+:PROPERTIES:
+:CUSTOM_ID: f18cd95
+:END:
+** IMPR Git: Lower the garbage collection threshold
+:PROPERTIES:
+:CUSTOM_ID: ec01b23
 :END:
 
 * v1.8.21
