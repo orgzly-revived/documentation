@@ -134,7 +134,7 @@
 :CUSTOM_ID: v1.8.15
 :END:
 
-** IMPR Add a public receiver for Tasker, Automate, etc
+** FEAT Add a public receiver for Tasker, Automate, etc
 :PROPERTIES:
 :CUSTOM_ID: de5e7c0
 :END:
