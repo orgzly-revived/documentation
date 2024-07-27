@@ -223,6 +223,8 @@ If any of this is not working for you, please [[Contact][contact]] us.
 
 ** Ignoring files in a repository
 
+(Supported on Android 8 and above.)
+
 For users who have a large number of .org files in their repository, and only want Orgzly to load some of them, a =.orgzlyignore= file can be added to the repository on a remote device. The file uses the same syntax as Git's =.gitignore= file, which lets you exclude or include files based on glob patterns. See the [[https://git-scm.com/docs/gitignore#_pattern_format][Git documentation]] for details on the syntax. If the repository contains a =.orgzlyignore= file, it will be consulted in the following situations:
 
 1. When looking through the repository for .org files to load.
