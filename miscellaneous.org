@@ -249,14 +249,14 @@ instead of the link (e.g. =[[link][name]]=).
 :CUSTOM_ID: 6874100
 :END:
 
-=https://www.orgzly.com=
+=https://www.orgzlyrevived.com=
 
 ** Email
 :PROPERTIES:
 :CUSTOM_ID: 21a1d14
 :END:
 
-=mailto:support@orgzly.com=
+=mailto:support@orgzlyrevived.com=
 
 ** Telephone number
 :PROPERTIES:
