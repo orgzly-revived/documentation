@@ -222,6 +222,9 @@ difference would be considered a serious bug.
 If any of this is not working for you, please [[Contact][contact]] us.
 
 ** Ignoring files in a repository
+:PROPERTIES:
+:CUSTOM_ID: a51773f
+:END:
 
 (Supported on Android 8 and above.)
 
@@ -328,12 +331,30 @@ using:
 :CUSTOM_ID: 9d5f3b9
 :END:
 
-Link to a notebook within the app looks like a link to an external file:
+*** Using the notebook's =ID= property
+:PROPERTIES:
+:CUSTOM_ID: 49c8c05
+:END:
+
+You can link to notebooks by their =ID= property.
+
+For example, if you set the notebooks's =ID= property to
+=123e4567-e89b-12d3-a456-426655440000=, you can link to it using:
+
+=id:123e4567-e89b-12d3-a456-426655440000=
+
+The value of the =ID= property can be anything, but [[https://en.wikipedia.org/wiki/Universally_unique_identifier][UUID]] is recommended.
+
+*** Using the notebook's file path
+:PROPERTIES:
+:CUSTOM_ID: c5b0e4b
+:END:
+
+You can link to a notebook within the app just like you would link to an external file:
 
 =file:gtd.org=
 
-Only the name matters and it has to be the same as the notebook you
-are linking to.
+Only the file name matters, and it has to match the notebook you are linking to.
 
 * Search
 :PROPERTIES:
