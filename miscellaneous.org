@@ -577,4 +577,4 @@ See [[https://www.orgzlyrevived.com/privacy][Privacy Policy]].
 
 Email us at [[mailto:support@orgzlyrevived.com][support@orgzlyrevived.com]] and visit [[https://www.orgzlyrevived.com][Orgzlyrevived.com]].
 
-Help us localize Orgzly by joining our [[https://crowdin.com/project/orgzly][Crowdin project]].
+Help us localize Orgzly by joining our [[https://crowdin.com/project/orgzly-revived][Crowdin project]].
