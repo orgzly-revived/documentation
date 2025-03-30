@@ -452,10 +452,9 @@ which are tagged with =beeblebrox=.
 :CUSTOM_ID: search-sorting
 :END:
 
-Default ordering of notes is by notebook name then priority. If =s= or
-=d= are used in the query, they are also sorted by scheduled or
-deadline time. They are always sorted by position in the notebook
-last.
+Default ordering of notes in the search results is by notebook name then priority. If =s=
+or =d= are used in the query, they are also sorted by scheduled or deadline time. They are
+always sorted by position in the notebook last. 
 
 You can change this behavior by using =o= operator.
 
@@ -483,18 +482,6 @@ When a note contains multiple events, only one of those events is
 considered when sorting. With =o.event= the oldest event is used. With
 =.o.event= most recent event is used.
 
-** Agenda
-:PROPERTIES:
-:CUSTOM_ID: search-agenda
-:END:
-
-You can add =ad.DAYS= to any query to display search results grouped by day.
-
-=DAYS= is a number of days you want to display.
-
-For example, ~(t.gym or t.class) ad.3~ will display notes tagged with
-=gym= or =class= with any type of time set within next 3 days.
-
 ** Examples
 :PROPERTIES:
 :CUSTOM_ID: search-examples
@@ -508,6 +495,27 @@ For example, ~(t.gym or t.class) ad.3~ will display notes tagged with
 - ~o.book o.pri o.s~ - Sort by notebook name then priority then scheduled time
 - ~p.b~ - Search for notes with priority =B= (includes notes with no priority if default priority is =B=)
 - ~ps.b~ - Search for notes with priority set to =B=
+
+** Agenda
+:PROPERTIES:
+:CUSTOM_ID: search-agenda
+:END:
+
+You can add =ad.DAYS= to any query to display search results grouped by day. This view is
+also known as the agenda view, similar to =org-agenda= in vanilla Emacs.
+
+=DAYS= is a number of days you want to display.
+
+For example, ~(t.gym or t.class) ad.3~ will display notes tagged with
+=gym= or =class= with any type of time set within next 3 days.
+
+Ordering in the agenda view is different from the regular search view. In the agenda view,
+notes are always sorted chronologically according to their timestamps within each
+day. Timestamps that include a date but no specific time of day will be ordered later in
+the day. For example, =<2025-03-30 15:00>= comes before =<2025-03-30>=. When two notes
+have the same timestamps, the ordering will be determined using the same criteria
+described in the *Sorting* section above.
+
 
 ** Search Results
 :PROPERTIES:
