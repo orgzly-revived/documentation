@@ -411,6 +411,7 @@ If =OP= is not specified:
 - Default value for =c= is =eq=
 
 =TIME= can be:
+- =NM= -- =N= minutes from now
 - =Nh= -- =N= hours from now
 - =Nd= -- =N= days from now
 - =Nw= -- =N= weeks from now
