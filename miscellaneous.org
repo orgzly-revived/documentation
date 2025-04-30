@@ -326,6 +326,7 @@ using:
 
 =[[#Meeting checklist]]=
 
+Orgzly supports adding IDs to all notes automatically. It is disabled by default but can be enabled in Settings, /Notes & Notebooks/, the /Add ID property/ under /New Note/.  
 ** Notebook
 :PROPERTIES:
 :CUSTOM_ID: 9d5f3b9
