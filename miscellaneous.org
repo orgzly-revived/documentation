@@ -1,6 +1,6 @@
 #+TITLE: A bit of Everything
 #+AUTHOR: Orgzly Revived
-#+OPTIONS: html-postamble:nil num:nil H:10
+#+OPTIONS: html-style:nil html-postamble:nil num:nil H:10
 
 #+BEGIN_SRC elisp :exports none :results silent
   (save-excursion
@@ -539,7 +539,7 @@ notebook that contains it.
 :CUSTOM_ID: repeated-tasks
 :END:
 
-You can easily create repeated tasks using [[the same syntax][https://orgmode.org/manual/Repeated-tasks.html]] as in org-mode.
+You can easily create repeated tasks using [[https://orgmode.org/manual/Repeated-tasks.html][the same syntax]] as in org-mode.
 For example =SCHEDULED: <2025-04-30 Wed +1w>= is a valid repeated task. Once you change its status to DONE, its state will
 remain the same and won't change to DONE, but its date will move one week ahead, to the next Wednesday.
 
