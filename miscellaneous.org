@@ -326,6 +326,7 @@ using:
 
 =[[#Meeting checklist]]=
 
+Orgzly supports adding IDs to all notes automatically. It is disabled by default but can be enabled in Settings, /Notes & Notebooks/, the /Add ID property/ under /New Note/.  
 ** Notebook
 :PROPERTIES:
 :CUSTOM_ID: 9d5f3b9
@@ -528,6 +529,19 @@ allow you to assign a starting time, cycle through the =TODO= and
 =DONE= states, or to simply mark the note as =DONE=.  If you swipe
 left you'll be given a single option: displaying the note in the
 notebook that contains it.
+
+* Advanced Features
+:PROPERTIES:
+:CUSTOM_ID: advanced-features
+:END:
+** Repeated Tasks
+:PROPERTIES:
+:CUSTOM_ID: repeated-tasks
+:END:
+
+You can easily create repeated tasks using [[the same syntax][https://orgmode.org/manual/Repeated-tasks.html]] as in org-mode.
+For example =SCHEDULED: <2025-04-30 Wed +1w>= is a valid repeated task. Once you change its status to DONE, its state will
+remain the same and won't change to DONE, but its date will move one week ahead, to the next Wednesday.
 
 * FAQ
 :PROPERTIES:
