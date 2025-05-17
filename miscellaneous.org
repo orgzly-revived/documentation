@@ -599,4 +599,4 @@ See [[https://www.orgzlyrevived.com/privacy][Privacy Policy]].
 
 Email us at [[mailto:support@orgzlyrevived.com][support@orgzlyrevived.com]] and visit [[https://www.orgzlyrevived.com][Orgzlyrevived.com]].
 
-Help us localize Orgzly by joining our [[https://crowdin.com/project/orgzly-revived][Crowdin project]].
+Help us localize Orgzly Revived by joining our [[https://toolate.othing.xyz/projects/orgzly-revived/][Weblate project]].
