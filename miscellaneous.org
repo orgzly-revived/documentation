@@ -16,7 +16,7 @@
 :END:
 
 You can sync your notebooks with a directory on your device, or
-with a few different repository types: Dropbox, WebDAV, and Git.
+with a few different repository types: Dropbox, WebDAV, and (experimental) Git.
 
 Notebooks are written as plain text files in [[https://orgmode.org][Org mode]] file format.
 
