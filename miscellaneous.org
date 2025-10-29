@@ -570,6 +570,21 @@ Yes, the source code is available on [[https://github.com/orgzly-revived/orgzly-
 Orgzly Revived is also available on [[https://f-droid.org/app/com.orgzlyrevived][F-Droid]]. Or you can download APK files
 directly from the [[https://github.com/orgzly-revived/orgzly-android-revived/releases][GitHub releases]] page.
 
+** Can I verify the APK signature?
+:PROPERTIES:
+:CUSTOM_ID: verify-apk-signature
+:END:
+
+Yes, this is the SHA-256 checksum of our APK signing certificate for verifying your downloaded APK with tools such as [[https://github.com/soupslurpr/AppVerifier][AppVerifier]] or [[https://developer.android.com/tools/apksigner][apksigner]]:
+
+#+begin_quote
+com.orgzlyrevived 6F:C9:C2:E2:2D:07:D2:5C:E7:7E:2E:96:34:55:05:3C:38:B8:31:8A:1A:24:91:B3:ED:95:D5:0C:BA:85:49:3D
+#+end_quote
+
+You should also check that this checksum matches the one published on [[https://github.com/orgzly-revived/orgzly-android-revived?tab=readme-ov-file#verifying-the-apk-signature][GitHub]].
+
+Once you have installed the APK, Android should refuse to update the app to any new version which was not signed by the same private key.
+
 ** Dropbox sync option is missing
 :PROPERTIES:
 :CUSTOM_ID: f695589
